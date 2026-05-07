@@ -186,6 +186,9 @@ importers:
       '@unocss/eslint-config':
         specifier: ^0.57.4
         version: 0.57.7(eslint@8.57.1)(typescript@5.3.3)
+      '@unocss/eslint-plugin':
+        specifier: ^0.57.7
+        version: 0.57.7(eslint@8.57.1)(typescript@5.3.3)
       '@unocss/transformer-variant-group':
         specifier: ^0.58.5
         version: 0.58.9
