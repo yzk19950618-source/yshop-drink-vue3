@@ -184,7 +184,10 @@ importers:
         specifier: ^7.1.0
         version: 7.18.0(eslint@8.57.1)(typescript@5.3.3)
       '@unocss/eslint-config':
-        specifier: ^0.57.4
+        specifier: ^0.57.7
+        version: 0.57.7(eslint@8.57.1)(typescript@5.3.3)
+      '@unocss/eslint-plugin':
+        specifier: ^0.57.7
         version: 0.57.7(eslint@8.57.1)(typescript@5.3.3)
       '@unocss/eslint-plugin':
         specifier: ^0.57.7
