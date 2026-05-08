@@ -1,0 +1,37 @@
+name: Deploy Frontend to 微信云托管
+
+on:
+  push:
+    branches: [main]   # 可以换成你需要触发的分支
+  workflow_dispatch:   # 支持手动触发
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 拉取代码
+        uses: actions/checkout@v4
+
+      - name: 安装 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: 安装依赖并构建
+        run: |
+          npm install
+          npm run build
+
+      - name: 安装微信云托管 CLI
+        run: npm install -g @wxcloud/cli
+
+      - name: 登录云托管
+        run: wxcloud login --appId "$WXCLOUD_APPID" --privateKey "$WXCLOUD_CLI_SECRET"
+        env:
+          WXCLOUD_APPID: ${{ secrets.WXCLOUD_APPID }}
+          WXCLOUD_CLI_SECRET: ${{ secrets.WXCLOUD_CLI_SECRET }}
+
+      - name: 上传到静态资源存储
+        run: wxcloud storage:upload dist --envId="$WXCLOUD_ENVID" --remotePath=/ --mode=staticstorage
+        env:
+          WXCLOUD_ENVID: ${{ secrets.WXCLOUD_ENVID }}
