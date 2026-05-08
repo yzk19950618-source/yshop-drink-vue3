@@ -19,7 +19,7 @@ jobs:
 
       - name: 安装依赖并构建
         run: |
-          npm install
+          npm install --legacy-peer-deps
           npm run build
 
       - name: 安装微信云托管 CLI
