@@ -32,6 +32,6 @@ jobs:
           WXCLOUD_CLI_SECRET: ${{ secrets.WXCLOUD_CLI_SECRET }}
 
       - name: 上传到静态资源存储
-        run: wxcloud storage:upload dist --envId="$WXCLOUD_ENVID" --remotePath=/ --mode=staticstorage
+        run: wxcloud storage:upload dist-prod --envId="$WXCLOUD_ENVID" --remotePath=/ --mode=staticstorage
         env:
           WXCLOUD_ENVID: ${{ secrets.WXCLOUD_ENVID }}
